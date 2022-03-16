@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.20
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "week2_BruteForceAttack", "week2_BruteForceAttack\week2_BruteForceAttack.csproj", "{ACBCD91B-0B80-41BF-8F05-11E18577E83A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACBCD91B-0B80-41BF-8F05-11E18577E83A}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{ACBCD91B-0B80-41BF-8F05-11E18577E83A}.Debug|anycpu.Build.0 = Debug|anycpu
+		{ACBCD91B-0B80-41BF-8F05-11E18577E83A}.Release|anycpu.ActiveCfg = Release|anycpu
+		{ACBCD91B-0B80-41BF-8F05-11E18577E83A}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3F9E2F63-1311-490B-9E22-4BBF848FA428}
+	EndGlobalSection
+EndGlobal
