@@ -36,6 +36,7 @@ namespace week2_BruteForceAttack
                 case 2: // 2. 숫자+알파벳
                     while (true)
                     {
+                        password = "";
                         for (int i = 0; i < length; i++)
                         {
                             do
@@ -54,6 +55,7 @@ namespace week2_BruteForceAttack
                 case 3: // 3. 숫자+알파벳+특수문자
                     while (true)
                     {
+                        password = "";
                         for (int i = 0; i < length; i++)
                         {
                             do
@@ -88,6 +90,7 @@ namespace week2_BruteForceAttack
             // 테스트는 100회 실시
             for (int i = 0; i < repeat; i++)
             {
+                Console.Write(i+". ");
                 password = Generate_Password(type, length);
 
                 Console.WriteLine(password);
