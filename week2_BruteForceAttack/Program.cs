@@ -1,17 +1,55 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace week2_BruteForceAttack
 {
     class MainClass
     {
-        public static string Generate_Password(int type)
+        public static string Generate_Password(int type, int length)
         {
+            Random rand = new Random();
             string password = "";
+            char ch;
+            Regex regex_num = new Regex("[^0-9]");
+            Regex regex_char = new Regex("[^A-Za-z]");
 
             switch (type)
             {
-                case 0:
-
+                case 0: // 0. 숫자
+                    for (int i = 0; i < length; i++)
+                    {
+                        password += rand.Next(0, 9).ToString();
+                    }
+                    break;
+                case 1: // 1. 알파벳
+                    for (int i = 0; i < length; i++)
+                    {
+                        // 알파벳이 아니면 반복
+                        do
+                        {
+                            ch = Convert.ToChar(rand.Next(65, 122));
+                        } while (ch > 90 && ch < 97);
+                        password += ch.ToString();
+                    }
+                    break;
+                case 2: // 2. 숫자+알파벳
+                    while (true)
+                    {
+                        for (int i = 0; i < length; i++)
+                        {
+                            do
+                            {
+                                ch = Convert.ToChar(rand.Next(48, 122));
+                            } while ((ch > 57 && ch < 65) || (ch > 90 && ch < 97));
+                            password += ch.ToString();
+                        }
+                        // 적어도 숫자와 알파벳이 하나씩 존재하는지
+                        if (regex_num.IsMatch(password) || regex_char.IsMatch(password))
+                        {
+                            break;
+                        }
+                    }
+                    break;
 
                 default:
                     break;
@@ -29,9 +67,13 @@ namespace week2_BruteForceAttack
 
             // 1. 무작위 패스워드 입력
             System.Console.WriteLine("0. 숫자, 1. 알파벳, 2. 숫자+알파벳, 3. 숫자+알파벳+특수문자");
-            System.Console.WriteLine("패스워드 유형을 선택하세요.");
+            System.Console.Write("패스워드 유형을 선택하세요. :");
             pw_type = int.Parse(Console.ReadLine());
-            password = Generate_Password(pw_type);
+            System.Console.Write("패스워드의 길이를 설정하세요.(4~8) :");
+            pw_length = int.Parse(Console.ReadLine());
+            password = Generate_Password(pw_type, pw_length);
+
+            System.Console.WriteLine(password);
 
             // 2. 
         }
