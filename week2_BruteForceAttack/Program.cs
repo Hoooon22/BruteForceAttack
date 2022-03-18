@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace week2_BruteForceAttack
 {
@@ -76,24 +77,37 @@ namespace week2_BruteForceAttack
             return password;
         }
 
-        public static void Main(string[] args)
+        public static void BruteForceAttack(int type, int length, int repeat)
         {
             string password; // 입력할 패스워드
+            string key; // 생성한 모든 경우의 문자
+
+            Stopwatch sw = new Stopwatch(); // real time 기록하는 타이머
+            double sumOfRealtime; // 분석용 타이머 합계
+
+            // 테스트는 100회 실시
+            for (int i = 0; i < repeat; i++)
+            {
+                password = Generate_Password(type, length);
+
+                Console.WriteLine(password);
+            }
+        }
+
+        public static void Main(string[] args)
+        {
             int pw_type; // 입력받은 패스워드의 유형
             int pw_length; // 입력받은 패스워드의 길이
-            string key; // 생성한 모든 경우의 문
 
             // 1. 무작위 패스워드 입력
-            System.Console.WriteLine("0. 숫자, 1. 알파벳, 2. 숫자+알파벳, 3. 숫자+알파벳+특수문자");
-            System.Console.Write("패스워드 유형을 선택하세요. :");
+            Console.WriteLine("0. 숫자, 1. 알파벳, 2. 숫자+알파벳, 3. 숫자+알파벳+특수문자");
+            Console.Write("패스워드 유형을 선택하세요. :");
             pw_type = int.Parse(Console.ReadLine());
-            System.Console.Write("패스워드의 길이를 설정하세요.(4~8) :");
+            Console.Write("패스워드의 길이를 설정하세요.(4~8) :");
             pw_length = int.Parse(Console.ReadLine());
-            password = Generate_Password(pw_type, pw_length);
 
-            System.Console.WriteLine(password);
-
-            // 2. 
+            // 2. BruteForceAttack 실행 - 100회 반복
+            BruteForceAttack(pw_type, pw_length, 100);
         }
     }
 }
