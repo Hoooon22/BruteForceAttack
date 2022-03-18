@@ -10,9 +10,9 @@ namespace week2_BruteForceAttack
             Random rand = new Random();
             string password = "";
             char ch;
-            Regex regex_num = new Regex("[^0-9]");
-            Regex regex_char = new Regex("[^A-Za-z]");
-
+            Regex regex_numchar = new Regex(@"^(?=.*[a-zA-Z])(?=.*[0-9])"); // 적어도 숫자, 문자 하나씩 존재
+            Regex regex_numcharspch = new Regex(@"^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W])"); // 적어도 숫자, 문자, 특수문자 하나씩 존재
+            
             switch (type)
             {
                 case 0: // 0. 숫자
@@ -44,7 +44,25 @@ namespace week2_BruteForceAttack
                             password += ch.ToString();
                         }
                         // 적어도 숫자와 알파벳이 하나씩 존재하는지
-                        if (regex_num.IsMatch(password) || regex_char.IsMatch(password))
+                        if (regex_numchar.IsMatch(password))
+                        {
+                            break;
+                        }
+                    }
+                    break;
+                case 3: // 3. 숫자+알파벳+특수문자
+                    while (true)
+                    {
+                        for (int i = 0; i < length; i++)
+                        {
+                            do
+                            {
+                                ch = Convert.ToChar(rand.Next(33, 126));
+                            } while ((ch > 57 && ch < 65) || (ch > 90 && ch < 97));
+                            password += ch.ToString();
+                        }
+                        // 적어도 숫자와 알파벳, 특수문자가 하나씩 존재하는지
+                        if (regex_numcharspch.IsMatch(password))
                         {
                             break;
                         }
