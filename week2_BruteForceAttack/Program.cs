@@ -10,8 +10,8 @@ namespace week2_BruteForceAttack
             Random rand = new Random();
             string password = "";
             char ch;
-            Regex regex_numchar = new Regex(@"^(?=.*[a-zA-Z])(?=.*[0-9])"); // 적어도 숫자, 문자 하나씩 존재
-            Regex regex_numcharspch = new Regex(@"^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W])"); // 적어도 숫자, 문자, 특수문자 하나씩 존재
+            Regex regex_numchar = new Regex(@"^(?=.*[a-zA-Z])(?=.*[0-9]).{4,8}$"); // 적어도 숫자, 문자 하나씩 존재
+            Regex regex_numcharspch = new Regex(@"^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\W]).{4,8}$"); // 적어도 숫자, 문자, 특수문자 하나씩 존재
             
             switch (type)
             {
