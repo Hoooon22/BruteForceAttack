@@ -82,19 +82,43 @@ namespace week2_BruteForceAttack
         public static void BruteForceAttack(int type, int length, int repeat)
         {
             string password; // 입력할 패스워드
-            string key; // 생성한 모든 경우의 문자
+            string key = ""; // 생성한 모든 경우의 문자
 
             Stopwatch sw = new Stopwatch(); // real time 기록하는 타이머
-            double sumOfRealtime; // 분석용 타이머 합계
+            int timeComplex; // 시간복잡도
+            double sumOfRealtime = 0; // 전체 테스트 타이머 합계 (msec)
+            double sumOfTimeComplex = 0; // 전체 테스트 시간복잡도 합계
 
             // 테스트는 100회 실시
             for (int i = 0; i < repeat; i++)
             {
-                Console.Write(i+". ");
+                // 1. 패스워드 생성
                 password = Generate_Password(type, length);
 
-                Console.WriteLine(password);
+                // 2. BruteForceAttack (모든 유형과 자릿수)
+                timeComplex = 0;
+                sw.Reset();
+                sw.Start();
+
+                do
+                {
+                    // 모든 자릿수 (4~8자리)
+                    for (int j = 4; j < 9; j++)
+                    {
+
+                    }
+
+                    timeComplex++;
+                } while (key == password);
+
+                // 시간, 시간복잡도 저장
+                sw.Stop();
+                sumOfRealtime += sw.ElapsedMilliseconds;
+                sumOfTimeComplex += timeComplex;
             }
+            // 총 테스트 결과 출력
+            Console.WriteLine("[[[자릿수 :" + length + ", 유형 :" + type + "의 테스트 결과]]]");
+            Console.WriteLine("테스트 " + repeat + "회 평균 RealTime :" + sumOfRealtime / repeat + ", 평균 시간복잡도 :" + sumOfTimeComplex / repeat);
         }
 
         public static void Main(string[] args)
