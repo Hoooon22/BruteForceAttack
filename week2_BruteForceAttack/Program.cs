@@ -113,8 +113,7 @@ namespace week2_BruteForceAttack
                         for (int a = 0; a < str.Length; a++)
                         {
                             key[3] = str[a];
-                            Console.WriteLine("("+key+ ")");
-                            if (password == new string(key))
+                            if (password == new string(key)) // password와 key가 같을 경우 탈출
                             {
                                 return timeComplex;
                             }
@@ -138,7 +137,6 @@ namespace week2_BruteForceAttack
                             for (int b = 0; b < str.Length; b++)
                             {
                                 key[4] = str[b];
-                                Console.WriteLine("("+key+ ")");
                                 if (password == new string(key))
                                 {
                                     return timeComplex;
@@ -167,7 +165,6 @@ namespace week2_BruteForceAttack
                                 for (int c = 0; c < str.Length; c++)
                                 {
                                     key[5] = str[c];
-                                    Console.WriteLine("("+key+ ")");
                                     if (password == new string(key))
                                     {
                                         return timeComplex;
@@ -200,7 +197,6 @@ namespace week2_BruteForceAttack
                                     for (int d = 0; d < str.Length; d++)
                                     {
                                         key[6] = str[d];
-                                        Console.WriteLine("("+key+ ")");
                                         if (password == new string(key))
                                         {
                                             return timeComplex;
@@ -237,7 +233,6 @@ namespace week2_BruteForceAttack
                                         for (int e = 0; e < str.Length; e++)
                                         {
                                             key[7] = str[e];
-                                            Console.WriteLine("("+key+ ")");
                                             if (password == new string(key))
                                             {
                                                 return timeComplex;
