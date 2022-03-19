@@ -113,7 +113,8 @@ namespace week2_BruteForceAttack
                         for (int a = 0; a < str.Length; a++)
                         {
                             key[3] = str[a];
-                            if (password == new string(key)) // password와 key가 같을 경우 탈출
+                            timeComplex++;
+                            if (string.Compare(password, new string(key)) == 0) // password와 key가 같을 경우 탈출
                             {
                                 return timeComplex;
                             }
@@ -137,7 +138,8 @@ namespace week2_BruteForceAttack
                             for (int b = 0; b < str.Length; b++)
                             {
                                 key[4] = str[b];
-                                if (password == new string(key))
+                                timeComplex++;
+                                if (string.Compare(password, new string(key)) == 0)
                                 {
                                     return timeComplex;
                                 }
@@ -165,7 +167,8 @@ namespace week2_BruteForceAttack
                                 for (int c = 0; c < str.Length; c++)
                                 {
                                     key[5] = str[c];
-                                    if (password == new string(key))
+                                    timeComplex++;
+                                    if (string.Compare(password, new string(key)) == 0)
                                     {
                                         return timeComplex;
                                     }
@@ -197,7 +200,8 @@ namespace week2_BruteForceAttack
                                     for (int d = 0; d < str.Length; d++)
                                     {
                                         key[6] = str[d];
-                                        if (password == new string(key))
+                                        timeComplex++;
+                                        if (string.Compare(password, new string(key)) == 0)
                                         {
                                             return timeComplex;
                                         }
@@ -233,7 +237,8 @@ namespace week2_BruteForceAttack
                                         for (int e = 0; e < str.Length; e++)
                                         {
                                             key[7] = str[e];
-                                            if (password == new string(key))
+                                            timeComplex++;
+                                            if (string.Compare(password, new string(key)) == 0)
                                             {
                                                 return timeComplex;
                                             }
@@ -274,21 +279,18 @@ namespace week2_BruteForceAttack
                 sw.Reset();
                 sw.Start();
 
-                do
-                {
-                    // 모든 자릿수 (4~8자리)
-                    timeComplex = CompareCombination(password, allOfChar, timeComplex); // 모든 조합과 비교
-                } while (true);
-
+                // 모든 자릿수 (4~8자리) 비교
+                timeComplex = CompareCombination(password, allOfChar, timeComplex); // 모든 조합과 비교
+            
                 // 시간, 시간복잡도 저장
                 sw.Stop();
-                Console.WriteLine("테스트 " + i + "=> 복잡도 :" + timeComplex + ", 소요시간: " + sw.ElapsedMilliseconds);
+                Console.WriteLine("테스트 " + i + "=> 복잡도 :" + timeComplex + ", 소요시간: " + sw.ElapsedMilliseconds * 0.001 + "(sec)");
                 sumOfRealtime += sw.ElapsedMilliseconds;
                 sumOfTimeComplex += timeComplex;
             }
             // 총 테스트 결과 출력
             Console.WriteLine("[[[자릿수 :" + length + ", 유형 :" + type + "의 테스트 결과]]]");
-            Console.WriteLine("테스트 " + repeat + "회 평균 RealTime :" + sumOfRealtime / repeat + ", 평균 시간복잡도 :" + sumOfTimeComplex / repeat);
+            Console.WriteLine("테스트 " + repeat + "회 평균 RealTime :" + (sumOfRealtime / repeat) * 0.001 + "(sec), 평균 시간복잡도 :" + sumOfTimeComplex / repeat);
         }
 
     }
