@@ -280,11 +280,12 @@ namespace week2_BruteForceAttack
                 sw.Start();
 
                 // 모든 자릿수 (4~8자리) 비교
+                // Console.WriteLine(password);
                 timeComplex = CompareCombination(password, allOfChar, timeComplex); // 모든 조합과 비교
             
                 // 시간, 시간복잡도 저장
                 sw.Stop();
-                Console.WriteLine("테스트 " + i + "=> 복잡도 :" + timeComplex + ", 소요시간: " + sw.ElapsedMilliseconds * 0.001 + "(sec)");
+                Console.WriteLine("테스트 " + (i+1) + "=> 복잡도 :" + timeComplex + ", 소요시간: " + sw.ElapsedMilliseconds * 0.001 + "(sec)");
                 sumOfRealtime += sw.ElapsedMilliseconds;
                 sumOfTimeComplex += timeComplex;
             }
